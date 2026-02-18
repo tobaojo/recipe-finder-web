@@ -10,7 +10,6 @@ type FeatureSectionProps = {
 };
 
 const FeatureSection = ({ features }: FeatureSectionProps) => {
-  console.log(features);
   return (
     <div>
       <h2>{features.featureTitle}</h2>

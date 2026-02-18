@@ -1,6 +1,6 @@
 export async function getHomePage() {
   const res = await fetch(
-    `${process.env.STRAPI_URL}/api/homepage?populate[hero][populate]=heroImage&populate[features][populate][featureItem][populate]=featureItemIcon&populate[realLife][populate]=*`,
+    `${process.env.STRAPI_URL}/api/homepage?populate[hero][populate]=heroImage&populate[features][populate][featureItem][populate]=featureItemIcon&populate[realLife][populate]=realLifeImage&populate[callToActionFooter][populate]=*`,
   );
   if (!res.ok) {
     throw new Error("Failed to fetch homepage data");
