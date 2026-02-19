@@ -8,7 +8,7 @@ interface HeroSectionProps {
     id?: number;
     title: string;
     subtitle: string;
-    callToAction: string;
+    callToActionHero: string;
     heroImage?: {
       url: string;
     };
@@ -22,7 +22,7 @@ export default function HeroSection({ hero }: HeroSectionProps) {
       <h1 className="text-4xl font-extrabold mb-4">{hero.title}</h1>
       <p>{hero.subtitle}</p>
       <Button onClick={() => console.log("Button clicked!")}>
-        <span>{hero.callToAction}</span>
+        <span>{hero.callToActionHero}</span>
       </Button>
       <Image src={hero.imageUrl} alt={hero.title} width={600} height={400} />
     </div>
