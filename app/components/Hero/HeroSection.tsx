@@ -17,7 +17,6 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ hero }: HeroSectionProps) {
-  console.log(hero);
   return (
     <div className="container mx-auto py-20">
       <h1 className="text-4xl font-extrabold mb-4">{hero.title}</h1>
