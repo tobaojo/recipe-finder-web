@@ -10,7 +10,6 @@ const AboutPage = async () => {
   const whyWeExist = aboutData?.whyWeExist;
   const foodPhilosophy = aboutData?.foodPhilosophy;
   const beyondThePlate = aboutData?.beyondThePlate;
-  const callToAction = aboutData?.callToActionSection;
 
   const aboutHeroWithImageUrl = {
     ...aboutHero,
