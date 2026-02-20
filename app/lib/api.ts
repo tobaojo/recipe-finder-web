@@ -19,3 +19,34 @@ export async function getAboutPage() {
   const data = await res.json();
   return data.data;
 }
+
+export async function getRecipesPage() {
+  const res = await fetch(`${process.env.STRAPI_URL}/api/recipes-page`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch recipes page data");
+  }
+  const data = await res.json();
+  return data.data;
+}
+
+export async function getRecipes() {
+  const res = await fetch(
+    `${process.env.STRAPI_URL}/api/recipes?populate=image`,
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch recipes data");
+  }
+  const data = await res.json();
+  return data.data;
+}
+
+export async function getRecipeBySlug(slug: string) {
+  const res = await fetch(
+    `${process.env.STRAPI_URL}/api/recipes?filters[slug][$eq]=${slug}&populate=image`,
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch recipe data");
+  }
+  const data = await res.json();
+  return data.data[0];
+}
