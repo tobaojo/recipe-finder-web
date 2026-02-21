@@ -18,6 +18,8 @@ export default async function Home() {
   const heroWithImageUrl = {
     ...hero,
     imageUrl: `${process.env.STRAPI_URL}${hero?.heroImage?.url}`,
+    height: hero?.heroImage?.height,
+    width: hero?.heroImage?.width,
   };
 
   const featuresWithImageUrls = {

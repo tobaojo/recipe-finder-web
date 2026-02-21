@@ -50,3 +50,14 @@ export async function getRecipeBySlug(slug: string) {
   const data = await res.json();
   return data.data[0];
 }
+
+export async function getFooter() {
+  const res = await fetch(
+    `${process.env.STRAPI_URL}/api/call-to-action-footer?populate=*`,
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch footer data");
+  }
+  const data = await res.json();
+  return data.data;
+}
