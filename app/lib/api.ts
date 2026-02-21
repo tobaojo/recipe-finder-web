@@ -61,3 +61,14 @@ export async function getFooter() {
   const data = await res.json();
   return data.data;
 }
+
+export const getSocialMediaLinks = async () => {
+  const res = await fetch(
+    `${process.env.STRAPI_URL}/api/social-links?populate=socialIcon`,
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch social media links");
+  }
+  const data = await res.json();
+  return data.data;
+};

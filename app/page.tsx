@@ -8,6 +8,7 @@ import {
   RealLifeType,
 } from "./types/types";
 import RealLifeSection from "./components/RealLife/RealLifeSection";
+import CallToAction from "./components/callToAction/CallToAction";
 
 export default async function Home() {
   const homepageData = await getHomePage();
@@ -57,6 +58,7 @@ export default async function Home() {
       <HeroSection hero={heroWithImageUrl} />
       <FeatureSection features={featuresWithImageUrls} />
       <RealLifeSection realLife={realLifeWithImageUrls} />
+      <CallToAction />
     </div>
   );
 }
