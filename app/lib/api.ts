@@ -8,3 +8,67 @@ export async function getHomePage() {
   const data = await res.json();
   return data.data;
 }
+
+export async function getAboutPage() {
+  const res = await fetch(
+    `${process.env.STRAPI_URL}/api/about?populate[aboutHero][populate]=*&populate[whyWeExist][populate]=*&populate[foodPhilosophy][populate]=*&populate[beyondThePlate][populate]=image&populate[callToActionSection][populate]=*`,
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch about page data");
+  }
+  const data = await res.json();
+  return data.data;
+}
+
+export async function getRecipesPage() {
+  const res = await fetch(`${process.env.STRAPI_URL}/api/recipes-page`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch recipes page data");
+  }
+  const data = await res.json();
+  return data.data;
+}
+
+export async function getRecipes() {
+  const res = await fetch(
+    `${process.env.STRAPI_URL}/api/recipes?populate=image`,
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch recipes data");
+  }
+  const data = await res.json();
+  return data.data;
+}
+
+export async function getRecipeBySlug(slug: string) {
+  const res = await fetch(
+    `${process.env.STRAPI_URL}/api/recipes?filters[slug][$eq]=${slug}&populate=image`,
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch recipe data");
+  }
+  const data = await res.json();
+  return data.data[0];
+}
+
+export async function getFooter() {
+  const res = await fetch(
+    `${process.env.STRAPI_URL}/api/call-to-action-footer?populate=*`,
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch footer data");
+  }
+  const data = await res.json();
+  return data.data;
+}
+
+export const getSocialMediaLinks = async () => {
+  const res = await fetch(
+    `${process.env.STRAPI_URL}/api/social-links?populate=socialIcon`,
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch social media links");
+  }
+  const data = await res.json();
+  return data.data;
+};
