@@ -18,9 +18,8 @@ type props = {
 const RecipePage = async ({ params }: props) => {
   const { slug } = await params;
   const recipe = await getRecipeBySlug(slug);
-  console.log(recipe);
   const imageUrl = `${process.env.STRAPI_URL}${recipe?.image?.url}`;
-  console.log(imageUrl);
+
   if (!recipe) {
     notFound();
   }

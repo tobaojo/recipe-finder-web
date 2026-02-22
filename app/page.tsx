@@ -8,6 +8,7 @@ import {
   RealLifeType,
 } from "./types/types";
 import RealLifeSection from "./components/RealLife/RealLifeSection";
+import CallToAction from "./components/callToAction/CallToAction";
 
 export default async function Home() {
   const homepageData = await getHomePage();
@@ -18,6 +19,8 @@ export default async function Home() {
   const heroWithImageUrl = {
     ...hero,
     imageUrl: `${process.env.STRAPI_URL}${hero?.heroImage?.url}`,
+    height: hero?.heroImage?.height,
+    width: hero?.heroImage?.width,
   };
 
   const featuresWithImageUrls = {
@@ -55,6 +58,7 @@ export default async function Home() {
       <HeroSection hero={heroWithImageUrl} />
       <FeatureSection features={featuresWithImageUrls} />
       <RealLifeSection realLife={realLifeWithImageUrls} />
+      <CallToAction />
     </div>
   );
 }

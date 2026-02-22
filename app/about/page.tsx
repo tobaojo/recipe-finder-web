@@ -1,3 +1,4 @@
+import CallToAction from "../components/callToAction/CallToAction";
 import { getAboutPage } from "../lib/api";
 import AboutHero from "./components/AboutHero";
 import BeyondThePlateSection from "./components/BeyondThePlateSection";
@@ -24,16 +25,17 @@ const AboutPage = async () => {
       url: `${process.env.STRAPI_URL}${beyondThePlate?.image?.url}`,
       width: beyondThePlate?.image?.width,
       height: beyondThePlate?.image?.height,
+      alternativeText: beyondThePlate?.image?.alternativeText || "",
     },
   };
 
   return (
-    <div className="container mx-auto py-20">
-      <h1 className="text-4xl font-bold mb-4">About</h1>
+    <div className="container mx-auto py-6 gap-6 flex flex-col">
       <AboutHero aboutHero={aboutHeroWithImageUrl} />
       <WhyWeExistSection whyWeExist={whyWeExist} />
       <FoodPhilosophySection foodPhilosophy={foodPhilosophy} />
       <BeyondThePlateSection beyondThePlate={beyondThePlateWithImageUrl} />
+      <CallToAction />
     </div>
   );
 };
