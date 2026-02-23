@@ -7,8 +7,6 @@ const RecipesPage = async () => {
   const recipesData = await getRecipesPage();
   const recipes = await getRecipes();
 
-  console.log(recipes);
-
   const title = recipesData.title;
   const subTitle = recipesData.subTitle;
 

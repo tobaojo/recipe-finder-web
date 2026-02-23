@@ -51,4 +51,19 @@ export type RecipeType = {
     height: number;
     alternativeText: string;
   };
+  ingredients: RecipeIngredientType[];
+  instructions: RecipeInstructionsType[];
+};
+
+export type RecipeIngredientType = {
+  id: number;
+  quantity: number;
+  unit: string;
+  name: string;
+};
+
+export type RecipeInstructionsType = {
+  id: number;
+  stepNumber: number;
+  description: { type: string; children: { type: number; text: string }[] }[];
 };
