@@ -67,3 +67,30 @@ export type RecipeInstructionsType = {
   stepNumber: number;
   description: { type: string; children: { type: number; text: string }[] }[];
 };
+
+export type SocialMediaLinkType = {
+  id: number;
+  socialLinkUrl: string;
+  title: string;
+  socialIcon: {
+    id: number;
+    url: string;
+    width: number;
+    height: number;
+    alternativeText: string;
+  };
+};
+
+export type SocialMediaLinksWithUrlsType = {
+  id: number;
+  socialLinkUrl: string;
+  title: string;
+  socialIcon: {
+    id: number;
+    url: string;
+    width: number;
+    height: number;
+    alt: string;
+    socialUrl: string;
+  };
+};

@@ -23,9 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={nunito.className}>
-      <body className="p-4 text-[#163A34]">
+      <body className="text-[#163A34]">
         <Header />
-        {children}
+        <div className="p-4">{children}</div>
         <Footer />
       </body>
     </html>
