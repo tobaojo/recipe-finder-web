@@ -42,7 +42,7 @@ export async function getRecipes() {
 
 export async function getRecipeBySlug(slug: string) {
   const res = await fetch(
-    `${process.env.STRAPI_URL}/api/recipes?filters[slug][$eq]=${slug}&populate=image`,
+    `${process.env.STRAPI_URL}/api/recipes?filters[slug][$eq]=${slug}&populate[ingredients][populate]=*&populate=image&populate[instructions][populate]=*`,
   );
   if (!res.ok) {
     throw new Error("Failed to fetch recipe data");

@@ -20,7 +20,6 @@ const BeyondThePlateSection = ({
 }: {
   beyondThePlate: BeyondThePlateSectionProps;
 }) => {
-  console.log(beyondThePlate);
   const descriptionParagaph = beyondThePlate.description.map(
     (descriptionParagraph) => {
       return descriptionParagraph?.children[0]?.text;

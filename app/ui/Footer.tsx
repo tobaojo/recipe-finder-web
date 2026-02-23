@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Footer = async () => {
   const socialMediaLinks = await getSocialMediaLinks();
-  console.log(socialMediaLinks);
+
   const socialMediaLinksWithUrls = socialMediaLinks.map((link: any) => ({
     ...link,
     socialIcon: {
