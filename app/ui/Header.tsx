@@ -11,8 +11,8 @@ const Header = () => {
     setToggle(!toggle);
   };
   return (
-    <header>
-      <div className="container mx-auto flex justify-between py-4">
+    <header className="border-b border-[#D0DCD9]">
+      <div className="container mx-auto flex justify-between p-4">
         <Link href="/" className="flex items-center gap-2">
           <span className="font-bold text-xl">Recipe Finder</span>
         </Link>
@@ -44,22 +44,25 @@ const Header = () => {
         </nav>
       </div>
       {toggle && (
-        <div className="md:hidden flex flex-col text-lg items-end">
+        <div className="md:hidden flex flex-col text-lg items-end px-4 gap-2">
           <Link
             href="/"
             className="[&.active]:font-bold text-gray-600 hover:text-gray-900"
+            onClick={() => setToggle(false)}
           >
             Home
           </Link>
           <Link
             href="/about"
             className="[&.active]:font-bold text-gray-600 hover:text-gray-900"
+            onClick={() => setToggle(false)}
           >
             About
           </Link>
           <Link
             href="/recipes"
             className="[&.active]:font-bold text-gray-600 hover:text-gray-900"
+            onClick={() => setToggle(false)}
           >
             Recipes
           </Link>
