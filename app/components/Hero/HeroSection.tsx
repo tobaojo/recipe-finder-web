@@ -1,8 +1,7 @@
 "use client";
 
-import clsx from "clsx";
-import Button from "../../ui/Button";
 import Image from "next/image";
+import Link from "next/link";
 
 interface HeroSectionProps {
   hero: {
@@ -23,23 +22,25 @@ export default function HeroSection({ hero }: HeroSectionProps) {
   return (
     <div className="container flex flex-col gap-6 mx-auto py-8">
       <div className="flex flex-col gap-6">
-        <h1 className="text-5xl font-extrabold mb-1">{hero.title}</h1>
-        <p className="text-2xl">{hero.subtitle}</p>
-        <Button
-          className={clsx(
-            "w-[65%] md:w-auto px-8 py-4 bg-[#163A34] text-white rounded-lg",
-          )}
-          onClick={() => console.log("Button clicked!")}
+        <h1 className="text-5xl lg:text-7xl font-black mb-1 lg:text-center">
+          {hero.title}
+        </h1>
+        <p className="text-2xl lg:text-center lg:mx-auto w-[90%] lg:w-180">
+          {hero.subtitle}
+        </p>
+        <Link
+          href="/recipes"
+          passHref
+          className="w-45 px-6 py-4 bg-[#163A34] text-white rounded-lg lg:mx-auto"
         >
           <span className="text-lg">{hero.callToActionHero}</span>
-        </Button>
-
+        </Link>
         <Image
           src={hero.imageUrl}
           alt={hero.title}
           width={hero.heroImage?.width}
           height={hero.heroImage?.height}
-          className="w-full h-auto object-cover rounded-lg border-3 border-white"
+          className="rounded-lg border-6 border-white h-auto mx-auto"
         />
       </div>
     </div>

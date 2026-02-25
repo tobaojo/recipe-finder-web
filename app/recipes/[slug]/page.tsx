@@ -20,15 +20,14 @@ export async function generateStaticParams() {
 }
 
 type props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 const RecipePage = async ({ params }: props) => {
   const { slug } = await params;
   const recipe = await getRecipeBySlug(slug);
-  console.log(recipe);
 
   const imageUrl = `${process.env.STRAPI_URL}${recipe?.image?.url}`;
   const subTitle = recipe.overview[0]?.children[0]?.text;

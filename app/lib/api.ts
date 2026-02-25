@@ -29,10 +29,52 @@ export async function getRecipesPage() {
   return data.data;
 }
 
-export async function getRecipes() {
-  const res = await fetch(
-    `${process.env.STRAPI_URL}/api/recipes?populate=image`,
-  );
+export async function getRecipes(filters?: {
+  maxPrepTime?: number;
+  maxCookTime?: number;
+  ingredients?: string[];
+  search?: string;
+}) {
+  let url = `${process.env.STRAPI_URL}/api/recipes?populate=image`;
+
+  const queryParts: string[] = [];
+
+  if (filters?.maxPrepTime) {
+    queryParts.push(`filters[prepMinutes][$lte]=${filters.maxPrepTime}`);
+  }
+
+  if (filters?.maxCookTime) {
+    queryParts.push(`filters[cookMinutes][$lte]=${filters.maxCookTime}`);
+  }
+
+  const normalizedSearch = filters?.search?.trim();
+  if (normalizedSearch) {
+    const encodedSearch = encodeURIComponent(normalizedSearch);
+    queryParts.push(`filters[$or][0][title][$containsi]=${encodedSearch}`);
+    queryParts.push(
+      `filters[$or][1][ingredients][name][$containsi]=${encodedSearch}`,
+    );
+  }
+
+  if (filters?.ingredients && filters.ingredients.length > 0) {
+    filters.ingredients.forEach((ingredient, index) => {
+      const normalizedIngredient = ingredient.trim();
+      if (!normalizedIngredient) {
+        return;
+      }
+
+      const encodedIngredient = encodeURIComponent(normalizedIngredient);
+      queryParts.push(
+        `filters[$and][${index}][ingredients][name][$containsi]=${encodedIngredient}`,
+      );
+    });
+  }
+
+  if (queryParts.length > 0) {
+    url += `&${queryParts.join("&")}`;
+  }
+
+  const res = await fetch(url, { next: { revalidate: 60 } });
   if (!res.ok) {
     throw new Error("Failed to fetch recipes data");
   }
