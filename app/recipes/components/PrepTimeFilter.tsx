@@ -17,7 +17,7 @@ const PrepTimeFilter = () => {
   };
 
   return (
-    <div className="mt-4 flex items-center gap-2 bg-white px-4 py-3  rounded-lg shadow-sm w-full">
+    <div className="bg-white rounded-xl px-4 py-3 shadow-sm w-full">
       <label htmlFor="prepTime">Max Prep Time:</label>
       <select id="prepTime" value={maxPrepTime || ""} onChange={handleChange}>
         <option value="">All</option>

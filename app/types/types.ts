@@ -53,6 +53,13 @@ export type RecipeType = {
   };
   ingredients: RecipeIngredientType[];
   instructions: RecipeInstructionsType[];
+  overview: {
+    type: string;
+    children: {
+      type: number;
+      text: string;
+    }[];
+  }[];
 };
 
 export type RecipeIngredientType = {

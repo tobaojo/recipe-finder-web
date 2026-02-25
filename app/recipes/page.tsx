@@ -51,9 +51,11 @@ const RecipesPage = async ({ searchParams }: RecipesProps) => {
       <p className="text-lg lg:text-xl lg:text-center lg:w-150 lg:self-center">
         {subTitle}
       </p>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 mt-6">
-        <PrepTimeFilter />
-        <CookTimeFilter />
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
+        <div className="flex flex-row items-center gap-4 w-1/3">
+          <PrepTimeFilter />
+          <CookTimeFilter />
+        </div>
         <SearchBar />
       </div>
 
