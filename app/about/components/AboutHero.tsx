@@ -25,7 +25,7 @@ const AboutHero = ({ aboutHero }: AboutHeroProps) => {
         <span className="px-2 py-1 rounded-md text-md bg-[#FE9F6B] text-[#163A34] font-bold w-27 text-nowrap">
           {aboutHero.title}
         </span>
-        <h2 className="text-4xl lg:text-5xl font-extrabold mb-1 ">
+        <h2 className="text-4xl lg:text-5xl font-extrabold mb-1">
           {aboutHero.subtitle}
         </h2>
         <p className="text-lg lg:text-xl">{descriptionParagraph1}</p>

@@ -44,10 +44,14 @@ const RecipesPage = async ({ searchParams }: RecipesProps) => {
   });
 
   return (
-    <div className="container mx-auto py-5">
-      <h1 className="text-4xl font-bold mb-4">{title}</h1>
-      <p>{subTitle}</p>
-      <div className="grid grid-cols-3 gap-1 mt-6">
+    <div className="container mx-auto py-5 flex flex-col gap-6">
+      <h2 className="text-4xl lg:text-5xl font-black mb-1 lg:text-center">
+        {title}
+      </h2>
+      <p className="text-lg lg:text-xl lg:text-center lg:w-150 lg:self-center">
+        {subTitle}
+      </p>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 mt-6">
         <PrepTimeFilter />
         <CookTimeFilter />
         <SearchBar />
