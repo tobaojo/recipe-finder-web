@@ -11,7 +11,7 @@ type RecipeCardProps = {
 
 const RecipeCard = ({ recipe }: RecipeCardProps) => {
   return (
-    <div className="p-4 bg-white rounded-xl flex flex-col">
+    <div className="p-4 bg-white rounded-xl flex flex-col gap-4 shadow-md">
       <Image
         src={recipe.image.url}
         alt={recipe.image.alternativeText || recipe.title}
@@ -20,7 +20,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
         className="rounded-xl"
       />
       <div>
-        <h2 className="text-2xl font-semibold mt-4">{recipe.title}</h2>
+        <h2 className="text-2xl font-semibold lg:h-14">{recipe.title}</h2>
         <div className="grid grid-cols-2 gap-4 mt-2">
           <div className="flex flex-row items-center">
             <Image
@@ -56,7 +56,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
       </div>
       <Link
         className={
-          "w-full md:w-auto px-6 py-4 bg-[#163A34] text-white rounded-full mt-4 self-center text-lg font-semibold text-center"
+          "w-full px-6 py-4 bg-[#163A34] text-white rounded-full mt-4 self-center text-lg font-semibold text-center"
         }
         href={`/recipes/${recipe.slug}`}
       >
