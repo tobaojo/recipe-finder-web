@@ -6,7 +6,7 @@ import Footer from "./ui/Footer";
 
 const nunito = Nunito({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
+  weight: ["300", "400", "600", "700", "800", "900", "1000"],
   variable: "--font-nunito",
 });
 

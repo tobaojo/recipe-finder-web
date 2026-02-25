@@ -17,7 +17,7 @@ const CookTimeFilter = () => {
   };
 
   return (
-    <div className="mt-4 flex items-center gap-2 bg-white p-4 rounded-lg shadow-md mx-auto">
+    <div className="mt-4 flex items-center gap-2 bg-white px-4 py-3  rounded-lg shadow-sm mx-auto">
       <label htmlFor="cookTime">Max Cook Time:</label>
       <select id="cookTime" value={maxCookTime || ""} onChange={handleChange}>
         <option value="">All</option>

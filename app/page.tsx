@@ -54,7 +54,7 @@ export default async function Home() {
   };
 
   return (
-    <div>
+    <div className="container mx-auto py-6 gap-15 lg:gap-20 flex flex-col">
       <HeroSection hero={heroWithImageUrl} />
       <FeatureSection features={featuresWithImageUrls} />
       <RealLifeSection realLife={realLifeWithImageUrls} />

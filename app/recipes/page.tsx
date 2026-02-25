@@ -47,9 +47,12 @@ const RecipesPage = async ({ searchParams }: RecipesProps) => {
     <div className="container mx-auto py-5">
       <h1 className="text-4xl font-bold mb-4">{title}</h1>
       <p>{subTitle}</p>
-      <PrepTimeFilter />
-      <CookTimeFilter />
-      <SearchBar />
+      <div className="grid grid-cols-3 gap-1 mt-6">
+        <PrepTimeFilter />
+        <CookTimeFilter />
+        <SearchBar />
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {recipesWithImages.map((recipe: RecipeType) => (
           <RecipeCard key={recipe.id} recipe={recipe} />

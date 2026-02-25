@@ -26,7 +26,7 @@ const SearchBar = () => {
         type="text"
         name="search"
         placeholder="Search by name or ingredient..."
-        className="w-full p-4 rounded-lg shadow-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-[#163a34]"
+        className="w-full px-4 py-3 rounded-lg shadow-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-[#163a34]"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
