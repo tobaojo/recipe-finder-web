@@ -10,6 +10,10 @@ type RecipeCardProps = {
 };
 
 const RecipeCard = ({ recipe }: RecipeCardProps) => {
+  const overviewText = recipe.overview
+    .map((block) => block.children.map((child) => child.text).join(" "))
+    .join("\n\n");
+  console.log(overviewText);
   return (
     <div className="p-4 bg-white rounded-xl flex flex-col gap-4 shadow-md">
       <Image
@@ -20,7 +24,11 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
         className="rounded-xl"
       />
       <div>
-        <h2 className="text-2xl font-semibold lg:h-14">{recipe.title}</h2>
+        <div className="flex flex-col gap-4">
+          <h2 className="text-2xl font-semibold lg:h-13">{recipe.title}</h2>
+          <p className="">{overviewText}</p>
+        </div>
+
         <div className="grid grid-cols-2 gap-4 mt-2">
           <div className="flex flex-row items-center">
             <Image
