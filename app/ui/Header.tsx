@@ -3,6 +3,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
@@ -12,9 +13,9 @@ const Header = () => {
   };
   return (
     <header className="border-b border-[#D0DCD9]">
-      <div className="container mx-auto flex justify-between p-4">
+      <div className="container mx-auto flex flex-row items-center justify-between p-4">
         <Link href="/" className="flex items-center gap-2">
-          <span className="font-bold text-xl">Recipe Finder</span>
+          <Image src="/logo.svg" alt="Logo" width={250} height={250} />
         </Link>
         <div
           className="lg:hidden flex w-5 h-5 items-center hover:bg-gray-200 cursor-pointer"
