@@ -11,7 +11,7 @@ type FeatureSectionProps = {
 
 const FeatureSection = ({ features }: FeatureSectionProps) => {
   return (
-    <div className="container flex flex-col gap-6 mx-auto py-8">
+    <div className="container flex flex-col gap-6 mx-auto py-8 border-b border-[#D0DCD9] my-6 lg:my-6 pb-6 lg:pb-10">
       <h2 className="text-4xl lg:text-5xl font-extrabold mb-1 lg:text-center">
         {features.featureTitle}
       </h2>

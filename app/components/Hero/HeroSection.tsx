@@ -20,7 +20,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ hero }: HeroSectionProps) {
   return (
-    <div className="container flex flex-col gap-6 mx-auto py-8">
+    <div className="container flex flex-col gap-6 mx-auto lg:py-8">
       <div className="flex flex-col gap-6">
         <h1 className="text-5xl lg:text-7xl font-black mb-1 lg:text-center">
           {hero.title}
@@ -35,12 +35,14 @@ export default function HeroSection({ hero }: HeroSectionProps) {
         >
           <span className="text-lg">{hero.callToActionHero}</span>
         </Link>
+
         <Image
           src={hero.imageUrl}
           alt={hero.title}
-          width={hero.heroImage?.width}
-          height={hero.heroImage?.height}
-          className="rounded-lg border-6 border-white h-auto mx-auto"
+          width={1150}
+          height={2000}
+          style={{ borderRadius: 24 }}
+          className="rounded-lg lg:rounded-xl border-6 lg:border-12 border-white mx-auto z-1"
         />
       </div>
     </div>

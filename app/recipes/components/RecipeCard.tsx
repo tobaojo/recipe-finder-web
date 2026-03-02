@@ -13,7 +13,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
   const overviewText = recipe.overview
     .map((block) => block.children.map((child) => child.text).join(" "))
     .join("\n\n");
-  console.log(overviewText);
+
   return (
     <div className="p-4 bg-white rounded-xl flex flex-col gap-4 shadow-md">
       <Image
@@ -25,7 +25,12 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
       />
       <div>
         <div className="flex flex-col gap-4">
-          <h2 className="text-2xl font-semibold lg:h-13">{recipe.title}</h2>
+          <Link
+            href={`/recipes/${recipe.slug}`}
+            className="text-2xl font-semibold lg:h-13 hover:underline"
+          >
+            {recipe.title}
+          </Link>
           <p className="">{overviewText}</p>
         </div>
 
@@ -64,7 +69,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
       </div>
       <Link
         className={
-          "w-full px-6 py-4 bg-[#163A34] text-white rounded-full mt-4 self-center text-lg font-semibold text-center"
+          "w-full px-6 py-4 bg-[#163A34] text-white rounded-full mt-4 self-center text-lg font-semibold text-center hover:bg-[#1E4D45] transition-colors duration-300 flex items-center justify-center"
         }
         href={`/recipes/${recipe.slug}`}
       >

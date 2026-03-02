@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Squiggle2 from "../../../public/pattern-squiggle-2.svg";
 
 interface AboutHeroProps {
   aboutHero: {
@@ -20,7 +21,7 @@ const AboutHero = ({ aboutHero }: AboutHeroProps) => {
   const descriptionParagraph1 = descriptionParagaphs[0];
   const descriptionParagraph2 = descriptionParagaphs[1];
   return (
-    <div className="flex flex-col lg:flex-row lg:items-center gap-4 border-b border-[#D0DCD9]">
+    <div className="flex flex-col lg:flex-row lg:items-center gap-4 border-b border-[#D0DCD9] my-6 lg:my-6 pb-6 lg:pb-10">
       <div className="flex flex-col gap-6 lg:w-150">
         <span className="px-2 py-1 rounded-md text-md bg-[#FE9F6B] text-[#163A34] font-bold w-27 text-nowrap">
           {aboutHero.title}
@@ -31,7 +32,13 @@ const AboutHero = ({ aboutHero }: AboutHeroProps) => {
         <p className="text-lg lg:text-xl">{descriptionParagraph1}</p>
         <p className="text-lg lg:text-xl">{descriptionParagraph2}</p>
       </div>
-
+      <Image
+        src={Squiggle2}
+        alt="Squiggle Pattern"
+        width={60}
+        height={50}
+        className="absolute top-110 right-0 z-10 w-1/7 hidden md:block"
+      />
       <Image
         src={aboutHero.imageUrl}
         alt={aboutHero.title}

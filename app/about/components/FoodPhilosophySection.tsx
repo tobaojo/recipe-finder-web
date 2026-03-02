@@ -17,7 +17,7 @@ const FoodPhilosophySection = ({
   foodPhilosophy: FoodPhilosophySectionProps;
 }) => {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 border-b border-[#D0DCD9] my-6 lg:my-6 pb-6 lg:pb-10">
       <div className="flex flex-col gap-6 lg:flex-row">
         <h2 className="text-4xl font-extrabold mb-1 flex-1">
           {foodPhilosophy.title}

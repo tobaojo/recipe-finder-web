@@ -9,6 +9,8 @@ import {
 } from "./types/types";
 import RealLifeSection from "./components/RealLife/RealLifeSection";
 import CallToAction from "./components/callToAction/CallToAction";
+import Squiggle from "../public/pattern-squiggle-1.svg";
+import Image from "next/image";
 
 export default async function Home() {
   const homepageData = await getHomePage();
@@ -54,11 +56,18 @@ export default async function Home() {
   };
 
   return (
-    <div className="container mx-auto py-6 gap-15 lg:gap-20 flex flex-col">
-      <HeroSection hero={heroWithImageUrl} />
-      <FeatureSection features={featuresWithImageUrls} />
-      <RealLifeSection realLife={realLifeWithImageUrls} />
-      <CallToAction />
-    </div>
+    <>
+      <div className="container relative z-10 mx-auto py-6 gap-10 lg:gap-20 flex flex-col">
+        <HeroSection hero={heroWithImageUrl} />
+        <FeatureSection features={featuresWithImageUrls} />
+        <RealLifeSection realLife={realLifeWithImageUrls} />
+        <CallToAction />
+      </div>
+      <Image
+        src={Squiggle}
+        alt="Squiggle Pattern"
+        className="pointer-events-none absolute top-70 left-0 -z-10 w-full hidden md:block"
+      />
+    </>
   );
 }
