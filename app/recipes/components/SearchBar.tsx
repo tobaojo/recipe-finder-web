@@ -21,12 +21,12 @@ const SearchBar = () => {
     }
   };
   return (
-    <form onSubmit={handleSearch} className="lg:w-1/3">
+    <form onSubmit={handleSearch} className="w-full lg:w-1/3">
       <input
         type="text"
         name="search"
         placeholder="Search by name or ingredient..."
-        className="w-full px-4 py-3 rounded-lg shadow-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-[#163a34]"
+        className="w-full p-4 rounded-lg shadow-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FE9F6B] bg-white text-[#163a34]"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />

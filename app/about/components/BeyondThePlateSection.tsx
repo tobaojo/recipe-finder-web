@@ -50,14 +50,15 @@ const BeyondThePlateSection = ({
           ))}
         </ul>
       </div>
-
-      <Image
-        src={beyondThePlate.image.url}
-        alt={beyondThePlate.image.alternativeText}
-        width={800}
-        height={500}
-        className="rounded-xl"
-      />
+      <div>
+        <Image
+          src={beyondThePlate.image.url}
+          alt={beyondThePlate.image.alternativeText}
+          width={800}
+          height={500}
+          className="rounded-xl"
+        />
+      </div>
     </div>
   );
 };

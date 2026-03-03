@@ -11,7 +11,6 @@ const AboutPage = async () => {
   const whyWeExist = aboutData?.whyWeExist;
   const foodPhilosophy = aboutData?.foodPhilosophy;
   const beyondThePlate = aboutData?.beyondThePlate;
-  console.log(beyondThePlate);
 
   const aboutHeroWithImageUrl = {
     ...aboutHero,
