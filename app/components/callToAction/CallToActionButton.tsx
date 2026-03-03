@@ -1,14 +1,19 @@
 "use client";
-import Button from "@/app/ui/Button";
+import Link from "next/link";
 
-const CallToActionButton = () => {
+type CallToActionButtonProps = {
+  className?: string;
+};
+
+const CallToActionButton = ({ className = "" }: CallToActionButtonProps) => {
   return (
-    <Button
-      className="w-[65%] md:w-auto px-6 py-4 bg-[#163A34] text-white rounded-lg"
-      onClick={() => console.log("first")}
+    <Link
+      href="/recipes"
+      passHref
+      className={`w-48 px-6 py-4 bg-[#163A34] text-white rounded-xl hover:bg-[#1E4D45] transition-colors duration-300 flex items-center justify-center ${className}`}
     >
-      Start Browsing
-    </Button>
+      Browse Recipes
+    </Link>
   );
 };
 

@@ -20,7 +20,6 @@ const BeyondThePlateSection = ({
 }: {
   beyondThePlate: BeyondThePlateSectionProps;
 }) => {
-  console.log(beyondThePlate);
   const descriptionParagaph = beyondThePlate.description.map(
     (descriptionParagraph) => {
       return descriptionParagraph?.children[0]?.text;
@@ -39,21 +38,27 @@ const BeyondThePlateSection = ({
   const reasonitems = reasons.map((children) => children?.children?.[0]?.text);
 
   return (
-    <div className="flex flex-col gap-6">
-      <h2 className="text-4xl font-extrabold mb-1">{beyondThePlate.title}</h2>
-      <p className="text-lg">{descriptionParagaph}</p>
-      <ul className="list-disc list-inside text-lg">
-        {reasonitems.map((reason, index) => (
-          <li key={index}>{reason}</li>
-        ))}
-      </ul>
-      <Image
-        src={beyondThePlate.image.url}
-        alt={beyondThePlate.image.alternativeText}
-        width={beyondThePlate.image.width}
-        height={beyondThePlate.image.height}
-        className="rounded-xl"
-      />
+    <div className="flex flex-col lg:flex-row gap-6">
+      <div className="flex flex-col gap-4">
+        <h2 className="text-4xl lg:text-5xl font-extrabold mb-1">
+          {beyondThePlate.title}
+        </h2>
+        <p className="text-lg lg:text-xl">{descriptionParagaph}</p>
+        <ul className="list-disc list-inside text-lg lg:text-xl">
+          {reasonitems.map((reason, index) => (
+            <li key={index}>{reason}</li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <Image
+          src={beyondThePlate.image.url}
+          alt={beyondThePlate.image.alternativeText}
+          width={800}
+          height={500}
+          className="rounded-xl"
+        />
+      </div>
     </div>
   );
 };

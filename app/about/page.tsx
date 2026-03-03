@@ -30,7 +30,7 @@ const AboutPage = async () => {
   };
 
   return (
-    <div className="container mx-auto py-6 gap-6 flex flex-col">
+    <div className="container mx-auto py-6 gap-10 lg:gap-20 flex flex-col">
       <AboutHero aboutHero={aboutHeroWithImageUrl} />
       <WhyWeExistSection whyWeExist={whyWeExist} />
       <FoodPhilosophySection foodPhilosophy={foodPhilosophy} />

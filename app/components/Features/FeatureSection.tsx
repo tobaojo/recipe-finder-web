@@ -11,9 +11,11 @@ type FeatureSectionProps = {
 
 const FeatureSection = ({ features }: FeatureSectionProps) => {
   return (
-    <div className="container flex flex-col gap-6 mx-auto py-8">
-      <h2 className="text-4xl font-extrabold mb-1">{features.featureTitle}</h2>
-      <ul className="flex flex-col md:flex-row md:gap-2 gap-4">
+    <div className="container flex flex-col gap-6 mx-auto py-8 border-b border-[#D0DCD9] my-6 lg:my-6 pb-6 lg:pb-10">
+      <h2 className="text-4xl lg:text-5xl font-extrabold mb-1 lg:text-center">
+        {features.featureTitle}
+      </h2>
+      <ul className="flex flex-col lg:flex-row lg:gap-2 gap-4 lg:self-center">
         {features.featureItem.map((item, index) => (
           <FeatureItem key={index} featureItem={item} />
         ))}

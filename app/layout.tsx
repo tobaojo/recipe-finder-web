@@ -6,7 +6,7 @@ import Footer from "./ui/Footer";
 
 const nunito = Nunito({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
+  weight: ["300", "400", "600", "700", "800", "900", "1000"],
   variable: "--font-nunito",
 });
 
@@ -23,9 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={nunito.className}>
-      <body className="p-4 text-[#163A34]">
+      <body className="text-[#163A34]">
         <Header />
-        {children}
+        <div className="p-4">{children}</div>
         <Footer />
       </body>
     </html>
