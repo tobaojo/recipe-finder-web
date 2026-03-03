@@ -1,7 +1,7 @@
 import { getRecipes, getRecipesPage } from "../lib/api";
 import { RecipeType } from "../types/types";
-import CookTimeFilter from "./components/cookTimeFilter";
-import PrepTimeFilter from "./components/PrepTimeFilter";
+import NewCookTimeFilter from "./components/NewCookTimeFilter";
+import NewPrepTimeFilter from "./components/NewPrepTimeFilter";
 import RecipeCard from "./components/RecipeCard";
 import SearchBar from "./components/SearchBar";
 
@@ -52,9 +52,9 @@ const RecipesPage = async ({ searchParams }: RecipesProps) => {
         {subTitle}
       </p>
       <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
-        <div className="flex flex-row items-center gap-4 w-1/3">
-          <PrepTimeFilter />
-          <CookTimeFilter />
+        <div className="flex flex-col lg:flex-row items-center gap-4 w-full lg:w-1/2">
+          <NewPrepTimeFilter />
+          <NewCookTimeFilter />
         </div>
         <SearchBar />
       </div>
