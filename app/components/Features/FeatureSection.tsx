@@ -16,7 +16,7 @@ const FeatureSection = ({ features }: FeatureSectionProps) => {
         {features.featureTitle}
       </h2>
       <ul className="flex flex-col lg:flex-row lg:gap-2 gap-4 lg:self-center">
-        {features.featureItem.map((item, index) => (
+        {features?.featureItem?.map((item, index) => (
           <FeatureItem key={index} featureItem={item} />
         ))}
       </ul>

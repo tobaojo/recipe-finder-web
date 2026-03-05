@@ -29,7 +29,7 @@ const RecipePage = async ({ params }: props) => {
   const { slug } = await params;
   const recipe = await getRecipeBySlug(slug);
 
-  const imageUrl = `${process.env.STRAPI_URL}${recipe?.image?.url}`;
+  const imageUrl = `${recipe?.image?.url}`;
   const subTitle = recipe.overview[0]?.children[0]?.text;
   const ingredients = recipe.ingredients;
   const instructions = recipe.instructions;

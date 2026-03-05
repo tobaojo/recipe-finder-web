@@ -2,11 +2,11 @@ import { RealLifeSectionType, RealLifeType } from "@/app/types/types";
 import Image from "next/image";
 
 const RealLifeSection = ({ realLife }: { realLife: RealLifeType }) => {
-  const sections = realLife?.realLifeSection.map(
+  const sections = realLife?.realLifeSection?.map(
     (item: RealLifeSectionType) => item,
   );
 
-  const paragraphTexts = sections.map(
+  const paragraphTexts = sections?.map(
     (section: RealLifeSectionType) => section.children[0].text,
   );
 
@@ -17,7 +17,7 @@ const RealLifeSection = ({ realLife }: { realLife: RealLifeType }) => {
           {realLife?.realLifeTitle}
         </h2>
         <div className="flex flex-col gap-4">
-          {paragraphTexts.map((text: string, index: number) => (
+          {paragraphTexts?.map((text: string, index: number) => (
             <div key={index}>
               <p className="text-xl lg:text-2xl">{text}</p>
             </div>

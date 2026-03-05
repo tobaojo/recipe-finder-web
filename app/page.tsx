@@ -20,7 +20,7 @@ export default async function Home() {
 
   const heroWithImageUrl = {
     ...hero,
-    imageUrl: `${process.env.STRAPI_URL}${hero?.heroImage?.url}`,
+    imageUrl: `${hero?.heroImage?.url}`,
     height: hero?.heroImage?.height,
     width: hero?.heroImage?.width,
   };
@@ -28,11 +28,11 @@ export default async function Home() {
   const featuresWithImageUrls = {
     id: features?.id,
     featureTitle: features?.featureTitle,
-    featureItem: features?.featureItem.map((item: FeatureItemType) => ({
+    featureItem: features?.featureItem?.map((item: FeatureItemType) => ({
       ...item,
       featureItemIcon: {
         ...item.featureItemIcon,
-        url: `${process.env.STRAPI_URL}${item.featureItemIcon?.url}`,
+        url: `${item.featureItemIcon?.url}`,
       },
     })),
   };
@@ -40,7 +40,7 @@ export default async function Home() {
   const realLifeWithImageUrls: RealLifeType = {
     id: realLife?.id,
     realLifeTitle: realLife?.realLifeTitle,
-    realLifeSection: realLife?.realLifeSection.map(
+    realLifeSection: realLife?.realLifeSection?.map(
       (section: RealLifeSectionType) => ({
         ...section,
         children: section.children.map((child: RealLifeChildType) => ({
@@ -51,7 +51,7 @@ export default async function Home() {
     ),
     realLifeImage: {
       ...realLife?.realLifeImage,
-      url: `${process.env.STRAPI_URL}${realLife?.realLifeImage?.url}`,
+      url: `${realLife?.realLifeImage?.url}`,
     },
   };
 

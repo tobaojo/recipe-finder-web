@@ -14,7 +14,7 @@ const AboutPage = async () => {
 
   const aboutHeroWithImageUrl = {
     ...aboutHero,
-    imageUrl: `${process.env.STRAPI_URL}${aboutHero?.heroImage?.url}`,
+    imageUrl: `${aboutHero?.heroImage?.url}`,
     width: aboutHero?.heroImage?.width,
     height: aboutHero?.heroImage?.height,
   };
@@ -22,7 +22,7 @@ const AboutPage = async () => {
   const beyondThePlateWithImageUrl = {
     ...beyondThePlate,
     image: {
-      url: `${process.env.STRAPI_URL}${beyondThePlate?.image?.url}`,
+      url: `${beyondThePlate?.image?.url}`,
       width: beyondThePlate?.image?.width,
       height: beyondThePlate?.image?.height,
       alternativeText: beyondThePlate?.image?.alternativeText || "",

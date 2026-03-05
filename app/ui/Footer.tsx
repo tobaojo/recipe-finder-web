@@ -13,7 +13,7 @@ const Footer = async () => {
       ...link,
       socialIcon: {
         ...link.socialIcon,
-        url: `${process.env.STRAPI_URL}${link.socialIcon?.url}`,
+        url: `${link.socialIcon?.url}`,
         alt: link.socialIcon?.alternativeText || "Social Media Icon",
         socialUrl: link.socialLinkUrl,
       },

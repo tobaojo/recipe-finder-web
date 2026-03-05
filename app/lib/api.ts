@@ -1,6 +1,20 @@
+const serverUrl = process.env.STRAPI_URL;
+const publicUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
+
+const apiBaseUrl =
+  process.env.NODE_ENV === "production"
+    ? (publicUrl ?? serverUrl ?? process.env.PUBLIC_STRAPI_URL)
+    : (serverUrl ?? publicUrl ?? process.env.PUBLIC_STRAPI_URL);
+
+if (!apiBaseUrl) {
+  throw new Error(
+    "Missing Strapi URL. Set STRAPI_URL (preferred) or NEXT_PUBLIC_STRAPI_URL in your environment.",
+  );
+}
+
 export async function getHomePage() {
   const res = await fetch(
-    `${process.env.STRAPI_URL}/api/homepage?populate[hero][populate]=heroImage&populate[features][populate][featureItem][populate]=featureItemIcon&populate[realLife][populate]=realLifeImage&populate[callToActionFooter][populate]=*`,
+    `${apiBaseUrl}/api/homepage?populate[hero][populate]=heroImage&populate[features][populate][featureItem][populate]=featureItemIcon&populate[realLife][populate]=realLifeImage&populate[callToActionFooter][populate]=*`,
   );
   if (!res.ok) {
     throw new Error("Failed to fetch homepage data");
@@ -11,7 +25,7 @@ export async function getHomePage() {
 
 export async function getAboutPage() {
   const res = await fetch(
-    `${process.env.STRAPI_URL}/api/about?populate[aboutHero][populate]=*&populate[whyWeExist][populate]=*&populate[foodPhilosophy][populate]=*&populate[beyondThePlate][populate]=image&populate[callToActionSection][populate]=*`,
+    `${apiBaseUrl}/api/about?populate[aboutHero][populate]=*&populate[whyWeExist][populate]=*&populate[foodPhilosophy][populate]=*&populate[beyondThePlate][populate]=image&populate[callToActionSection][populate]=*`,
   );
   if (!res.ok) {
     throw new Error("Failed to fetch about page data");
@@ -21,7 +35,7 @@ export async function getAboutPage() {
 }
 
 export async function getRecipesPage() {
-  const res = await fetch(`${process.env.STRAPI_URL}/api/recipes-page`);
+  const res = await fetch(`${apiBaseUrl}/api/recipes-page`);
   if (!res.ok) {
     throw new Error("Failed to fetch recipes page data");
   }
@@ -35,7 +49,7 @@ export async function getRecipes(filters?: {
   ingredients?: string[];
   search?: string;
 }) {
-  let url = `${process.env.STRAPI_URL}/api/recipes?populate=image`;
+  let url = `${apiBaseUrl}/api/recipes?populate=image`;
 
   const queryParts: string[] = [];
 
@@ -84,7 +98,7 @@ export async function getRecipes(filters?: {
 
 export async function getRecipeBySlug(slug: string) {
   const res = await fetch(
-    `${process.env.STRAPI_URL}/api/recipes?filters[slug][$eq]=${slug}&populate[ingredients][populate]=*&populate=image&populate[instructions][populate]=*`,
+    `${apiBaseUrl}/api/recipes?filters[slug][$eq]=${slug}&populate[ingredients][populate]=*&populate=image&populate[instructions][populate]=*`,
   );
   if (!res.ok) {
     throw new Error("Failed to fetch recipe data");
@@ -94,9 +108,7 @@ export async function getRecipeBySlug(slug: string) {
 }
 
 export async function getFooter() {
-  const res = await fetch(
-    `${process.env.STRAPI_URL}/api/call-to-action-footer?populate=*`,
-  );
+  const res = await fetch(`${apiBaseUrl}/api/call-to-action-footer?populate=*`);
   if (!res.ok) {
     throw new Error("Failed to fetch footer data");
   }
@@ -105,9 +117,7 @@ export async function getFooter() {
 }
 
 export const getSocialMediaLinks = async () => {
-  const res = await fetch(
-    `${process.env.STRAPI_URL}/api/social-links?populate=socialIcon`,
-  );
+  const res = await fetch(`${apiBaseUrl}/api/social-links?populate=socialIcon`);
   if (!res.ok) {
     throw new Error("Failed to fetch social media links");
   }

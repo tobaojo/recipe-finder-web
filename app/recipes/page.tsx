@@ -35,7 +35,7 @@ const RecipesPage = async ({ searchParams }: RecipesProps) => {
       ...recipe,
       image: {
         id: recipe.image.id,
-        url: `${process.env.STRAPI_URL}${recipe.image.url}`,
+        url: `${recipe.image.url}`,
         width: recipe.image.width,
         height: recipe.image.height,
         alternativeText: recipe.image.alternativeText,
